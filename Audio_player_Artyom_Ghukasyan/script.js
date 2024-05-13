@@ -8,11 +8,11 @@ let data = {
         
     ],
     song : [
-        "mtg - otimos videogames - laq1zen (sped up + reverb).mp3",
-        "Denzel Curry Ultimate.mp3",
-        "Minecraft-Theme.mp3",
-        "DJ Vilão DS - Baile do Coqueiro 5.mp3",
-        "DJ RICK 013, MC GW - THE AUTOTREM 1.0 (Slowed + Reverb).mp3"
+        "music/mtg - otimos videogames - laq1zen (sped up + reverb).mp3",
+        "music/Denzel Curry Ultimate.mp3",
+        "music/Minecraft-Theme.mp3",
+        "music/DJ Vilão DS - Baile do Coqueiro 5.mp3",
+        "music/DJ RICK 013, MC GW - THE AUTOTREM 1.0 (Slowed + Reverb).mp3"
     ],
     poster : [
         "https://source.boomplaymusic.com/group10/M00/10/13/e8300dac9fc84ba6a98e7a51c09e1ca4_320_320.jpg",
@@ -22,3 +22,43 @@ let data = {
         "https://m.media-amazon.com/images/I/41eJKUJ9uGL._UXNaN_FMjpg_QL85_.jpg"
     ],
 }
+
+let song = new Audio
+
+window.onload = function() {
+    playSong()
+}
+
+let currentsong = 0
+function playSong() {
+    song.src = data.song[currentsong]
+    let songTitle = document.getElementById("songTitle")
+    songTitle.textContent = data.title[currentsong]
+    let img = document.getElementsByClassName("row1")
+    img[0].style.backgroundImage = "url(" + data.poster[currentsong] + ")"
+    let main = document.getElementsByClassName("main")
+    main[0].style.backgroundImage = "url(" + data.poster[currentsong] + ")"
+    song.play()
+
+}
+
+function playOrPauseSong() {
+    let play = document.getElementById("play")
+
+    if(song.paused) {
+        song.play()
+        play.src = "images/pause.png"
+    }  else {
+        song.pause()
+        play.src = "images/play-button-arrowhead.png"
+    }
+}
+
+song.addEventListener("timeupdate" , function(){
+    let fill = document.getElementsByClassName("fill")
+    let position = song.currentTime / song.duration
+
+    fill[0].style.marginLeft = position * 99 + "%"
+
+    
+} )
