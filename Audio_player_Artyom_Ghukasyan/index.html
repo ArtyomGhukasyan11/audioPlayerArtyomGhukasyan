@@ -15,15 +15,15 @@
         <div class="row1">
             
         </div>
-        <div id="songTitle">Title</div>
+        <div id="songTitle" class="run">Title</div>
         <div class="row2">
             <div class="play">
-                <img src="images/previous.png" alt="#" id="pre">
-                <img src="images/play-button-arrowhead.png" alt="#" id="play" onclick="playOrPauseSong()">
-                <img src="images/next.png" alt="#" id="next">
+                <img src="images/previous.png" alt="#" id="pre" onclick="prev()" class="scale">
+                <img src="images/play-button-arrowhead.png" alt="#" id="play" onclick="playOrPauseSong()" class="scale">
+                <img src="images/next.png" alt="#" id="next" onclick="next()" class="scale">
             </div>
             <div class="seek-bar">
-                <div class="handle">
+                <div class="handle" >
                     <div class="fill">
 
                     </div>
@@ -31,10 +31,14 @@
             </div>
             <div class="mute">
                 <div class="currentTime">00 : 00 / 00 : 00</div>
+                <div class="repeatOrShuffleButtons">
+                    <img src="images/repeat-off-1.png" alt="#" id="repeat" class="scale">
+                    <img src="images/shuffle-off.png" alt="#" id="shuffle" class="scale">
+                </div>
                 <div class="muteButtons">
-                    <img src="images/volume-down.png" alt="#" id="decrease">
-                    <img src="images/volume.png" alt="#" id="mute">
-                    <img src="images/increase-volume.png" alt="#" id="increase">
+                    <img src="images/volume-down.png" alt="#" id="decrease" onclick="decrease()" class="scale">
+                    <img src="images/volume.png" alt="#" id="mute" onclick="mute()" class="scale">
+                    <img src="images/increase-volume.png" alt="#" id="increase" onclick="increase()" class="scale">
                 </div>
             </div>
         </div>
